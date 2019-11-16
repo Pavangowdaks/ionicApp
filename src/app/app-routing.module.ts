@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: '', redirectTo: 'banks', pathMatch: 'full' },
+  { path: 'banks', loadChildren: () => import('./pages/banks/banks.module').then( m => m.BanksPageModule)},
+  { path: 'bank-details/:bank', loadChildren: './pages/bank-details/bank-details.module#BankDetailsPageModule' }
 ];
 
 @NgModule({

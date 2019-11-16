@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar class="header-bg-color">
+    <ion-title>Bank Search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="none">
+
+  <ion-item>
+    <ion-label color="danger">Select City</ion-label>
+    <ion-select [(ngModel)]="searchTerm" (ionChange)= "searchChanged()">
+      <ion-select-option value="HASSAN" selected>HASSAN</ion-select-option>
+      <ion-select-option value="BANGALORE">BANGALORE</ion-select-option>
+      <ion-select-option value="MUMBAI">MUMBAI</ion-select-option>
+      <ion-select-option value="CHENNAI">CHENNAI</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-searchbar
+    *ngIf="searchTerm"
+    placeholder="Enter full IFSC-code"
+    [(ngModel)]="searchTerm1"
+    (ionChange)= "searchManually()">
+  </ion-searchbar>
+
+  <app-no-resources
+    [message]="'did not find any bank details'"
+    *ngIf="!banks?.length">
+  </app-no-resources>
+
+  <ion-card *ngFor="let item of banks">
+    <ion-card-content>
+      <span class="field-color">BankName : </span>{{item.bank_name}}<br>
+      <span class="field-color">Branch : </span>{{item.branch}}<br>
+      <span class="field-color">IFSC : </span>{{item.ifsc}}<br>
+      <span class="field-color">city : </span>{{item.city}}<br>
+      <ion-button *ngIf="searchTerm1" expand="block" color="light" (click)="onBankSelect(banks)">details</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

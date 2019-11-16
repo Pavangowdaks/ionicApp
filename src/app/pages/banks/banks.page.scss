@@ -1,0 +1,11 @@
+ion-content{
+  padding-top: 0 !important;
+  background-color: lighten(#9d5456, 48%);
+}
+
+ion-card-content{
+  color: var(--ion-color-dark);
+  .field-color{
+    color: var(--ion-color-primary);
+  }
+}

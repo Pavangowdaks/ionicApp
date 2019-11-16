@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar class="header-bg-color">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>bank-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="none">
+  <ion-card *ngFor="let item of bankDetails">
+    <ion-card-content>
+      <span class="field-color">IFSC : </span>{{item.ifsc}}<br>
+      <span class="field-color">Bank Id : </span>{{item.bank_id}}<br>
+      <span class="field-color">Branch : </span>{{item.branch}}<br>
+      <span class="field-color">Address : </span>{{item.address}}<br>
+      <span class="field-color">BankName : </span>{{item.bank_name}}<br>
+      <span class="field-color">City : </span>{{item.city}}<br>
+      <span class="field-color">District : </span>{{item.district}}<br>
+      <span class="field-color">State : </span>{{item.state}}<br>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
