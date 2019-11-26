@@ -54,8 +54,8 @@ export class BanksPage implements OnInit {
     await this.showSpinner();
     this.bankServices.searchData(this.searchTerm.toUpperCase()).toPromise()
     .then(async (banks) => {
-      await this.hideSpinner();
       this.banks = banks;
+      await this.hideSpinner();
     })
     .catch(async (error) => {
       await this.hideSpinner();
@@ -72,10 +72,12 @@ export class BanksPage implements OnInit {
     });
   }
 
-  public onBankSelect(banks) {
+  public async onBankSelect(banks) {
+    await this.showSpinner();
     let bankObj = banks;
     let dataSend = JSON.stringify(bankObj);
     this.router.navigate([`bank-details/${dataSend}`]);
+    await this.hideSpinner();
   }
 
 }
