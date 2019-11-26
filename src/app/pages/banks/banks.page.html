@@ -18,7 +18,7 @@
 
   <ion-searchbar
     *ngIf="searchTerm"
-    placeholder="Enter full IFSC-code"
+    placeholder="Enter IFSC-code"
     [(ngModel)]="searchTerm1"
     (ionChange)= "searchManually()">
   </ion-searchbar>
@@ -34,7 +34,7 @@
       <span class="field-color">Branch : </span>{{item.branch}}<br>
       <span class="field-color">IFSC : </span>{{item.ifsc}}<br>
       <span class="field-color">city : </span>{{item.city}}<br>
-      <ion-button *ngIf="searchTerm1" expand="block" color="light" (click)="onBankSelect(banks)">details</ion-button>
+      <ion-button expand="block" color="light" (click)="onBankSelect(item)">details</ion-button>
     </ion-card-content>
   </ion-card>
 
