@@ -10,8 +10,9 @@ import * as _ from 'lodash';
 export class BankService {
   url = 'https://vast-shore-74260.herokuapp.com/banks';
   apiKey = '2be398c0';
+  public items: any = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public searchData(title) {
     return this.http.get(`${this.url}?city=${encodeURI(title)}&apiKey=${this.apiKey}`);

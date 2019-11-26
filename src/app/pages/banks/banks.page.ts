@@ -20,6 +20,7 @@ export class BanksPage implements OnInit {
   public searchTerm: string = '';
   public searchTerm1: string = '';
   public banks: any = [];
+  public items: any = [];
 
   constructor(
     private loadingCtrl: LoadingController,
@@ -66,11 +67,8 @@ export class BanksPage implements OnInit {
     if (!this.searchTerm1) {
       this.searchChanged();
     }
-    this.bankServices.searchData(this.searchTerm.toUpperCase()).toPromise()
-    .then(async (bank) => {
-      this.banks = _.filter(bank, (b) => {
-        return (b.ifsc === this.searchTerm1.toUpperCase());
-      });
+    this.banks = await this.banks.filter((bank) => {
+      return bank.ifsc.toUpperCase().indexOf(this.searchTerm1.toUpperCase()) > -1;
     });
   }
 
